@@ -19,12 +19,45 @@ Installing from source:
 Setup
 -----
 
+Courier uses environemnt variables to send emails. The following need to be set.
+
+| Name                | Example              |
+| ------------------- | -------------------- |
+| EMAIL_SRVC_HOST     | smtp.mandrillapp.com |
+| EMAIL_SRVC_PORT     | 25                   |
+| EMAIL_SRVC_LOGIN    | username@company.com |
+| EMAIL_SRVC_PASSWORD | password             |
+| EMAIL_FROM_ADRESS   | noreply@company.com  |
+| EMAIL_TMPL_ROOT     | /srv/emails          |
+
+Courier is meant to work hand in hand with [Artisan](https://github.com/firstopinion/artisan) builds and will look inside of the directory specified by the environemnt variable `EMAIL_TMPL_ROOT` for the following structure.
+
+** EXAMPLE **
+
+    - Messages
+        - welcome
+            - index.html
+            - index.txt
+        - success
+            - index.html
+            - index.txt
 
 
 Usage
 -----
 
+    from courier import Courier
+    
+    new_email = courier.Courier(TO_ADDRESS, SUBJECT, MESSAGE_NAME, DATA)
 
+**EXAMPLE**
+
+    from courier import Courier
+    
+    new_email = courier.Courier('karlmalone@nba.com', 'Special Delivery', 'success', {
+        "first_name": "Karl",
+        "last_name": "Malone"
+    })
 
 Tests
 -----

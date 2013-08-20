@@ -25,7 +25,7 @@ class CourierTest(unittest.TestCase):
         os.environ["EMAIL_SRVC_LOGIN"] = "admin@firstopinion.co"
         os.environ["EMAIL_SRVC_PASSWORD"] = "ho_socIk5NarJ_KXoC800g"
         os.environ["EMAIL_FROM_ADRESS"] = "info@firstopinion.co"
-        os.environ["EMAIL_TMPL_ROOT"] = "/vagrant/tests/email"
+        os.environ["EMAIL_TMPL_ROOT"] = "/srv/tests/email"
         # Make test directory
         cls.test_dir = os.path.join(os.environ["EMAIL_TMPL_ROOT"], 'test')
         os.makedirs(cls.test_dir)
