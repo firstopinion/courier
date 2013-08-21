@@ -24,16 +24,16 @@ Courier uses environment variables to send emails. The following need to be set.
 | ------------------- | -------------------- |
 | EMAIL_SRVC_HOST     | smtp.mandrillapp.com |
 | EMAIL_SRVC_PORT     | 25                   |
-| EMAIL_SRVC_LOGIN    | username@company.com |
+| EMAIL_SRVC_LOGIN    | karlmalone@nba.com   |
 | EMAIL_SRVC_PASSWORD | password             |
-| EMAIL_FROM_ADRESS   | noreply@company.com  |
-| EMAIL_TMPL_ROOT     | /srv/emails          |
+| EMAIL_FROM_ADRESS   | mailman@nba.com      |
+| EMAIL_TMPL_ROOT     | /emails              |
 
 Courier is meant to work hand in hand with [Artisan](https://github.com/firstopinion/artisan) builds and will look inside of the directory specified by the environemnt variable `EMAIL_TMPL_ROOT` for the following structure.
 
 ** EXAMPLE **
 
-    - Messages
+    - emails
         - welcome
             - index.html
             - index.txt

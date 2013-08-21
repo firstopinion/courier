@@ -20,11 +20,11 @@ class CourierTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Set environ variables for Courier to use
-        os.environ["EMAIL_SRVC_HOST"] = ""
+        os.environ["EMAIL_SRVC_HOST"] = "smtp.example.com"
         os.environ["EMAIL_SRVC_PORT"] = "25"
-        os.environ["EMAIL_SRVC_LOGIN"] = ""
-        os.environ["EMAIL_SRVC_PASSWORD"] = ""
-        os.environ["EMAIL_FROM_ADRESS"] = "karl.malone@nba.com"
+        os.environ["EMAIL_SRVC_LOGIN"] = "login"
+        os.environ["EMAIL_SRVC_PASSWORD"] = "password"
+        os.environ["EMAIL_FROM_ADRESS"] = "karlmalone@nba.com"
         os.environ["EMAIL_TMPL_ROOT"] = "/srv/tests/email"
         # Make test directory
         cls.test_dir = os.path.join(os.environ["EMAIL_TMPL_ROOT"], 'test')
@@ -45,7 +45,7 @@ class CourierTest(unittest.TestCase):
 
     def test_send(self):
         # Message Params
-        TO_ADDRESS = "admin@firstopinion.co"
+        TO_ADDRESS = "username@email.com"
         SUBJECT = "test"
         MESSAGE_NAME = "test"
         # Template html
@@ -107,10 +107,12 @@ class CourierTest(unittest.TestCase):
         # flexmock(courier.Envelope, send=mock_send)    
         courier.Envelope.send = mock_send
 
-        # init
+        # Init
         new_email = courier.Courier(TO_ADDRESS, SUBJECT, MESSAGE_NAME, {
             "name": "Courier"
         })
+        # Send
+        new_email.send()
 
 
 def suite():

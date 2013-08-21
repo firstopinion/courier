@@ -34,11 +34,19 @@ class Courier(object):
                 self.msg["html_body"] = self.template(file_path, data)
             elif file_path.endswith(".txt"):
                 self.msg["text_body"] = self.template(file_path, data)
-        # Send
+
+    def send(self):
+        """
+        Init envelope by passing message details and send
+        using credentials define during self init
+        """
         envelope = Envelope(**self.msg)
         envelope.send(**self.creds)
 
     def template(self, path, data):
+        """
+        Open provided file and render with passed data
+        """
         with open(path, 'r') as file:
             tmpl = self.jinja.from_string(file.read())
             return tmpl.render(**data)
