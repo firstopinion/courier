@@ -20,11 +20,11 @@ class CourierTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Set environ variables for Courier to use
-        os.environ["EMAIL_SRVC_HOST"] = "smtp.mandrillapp.com"
+        os.environ["EMAIL_SRVC_HOST"] = ""
         os.environ["EMAIL_SRVC_PORT"] = "25"
-        os.environ["EMAIL_SRVC_LOGIN"] = "admin@firstopinion.co"
-        os.environ["EMAIL_SRVC_PASSWORD"] = "ho_socIk5NarJ_KXoC800g"
-        os.environ["EMAIL_FROM_ADRESS"] = "info@firstopinion.co"
+        os.environ["EMAIL_SRVC_LOGIN"] = ""
+        os.environ["EMAIL_SRVC_PASSWORD"] = ""
+        os.environ["EMAIL_FROM_ADRESS"] = "karl.malone@nba.com"
         os.environ["EMAIL_TMPL_ROOT"] = "/srv/tests/email"
         # Make test directory
         cls.test_dir = os.path.join(os.environ["EMAIL_TMPL_ROOT"], 'test')

@@ -12,14 +12,13 @@ Installation
 
 Installing from source:
 
-`python setup.py install`
-
+    python setup.py install
 
 
 Setup
 -----
 
-Courier uses environemnt variables to send emails. The following need to be set.
+Courier uses environment variables to send emails. The following need to be set.
 
 | Name                | Example              |
 | ------------------- | -------------------- |
@@ -62,19 +61,20 @@ Usage
 Tests
 -----
 
-`python setup.py test`
+    python setup.py test
 
 
 
 Developing
 ----------
 
-`python setup.py develop`
+    python setup.py develop
 
 
 
 License
 -------
+
 The MIT License (MIT)
 Copyright (c) 2013 First Opinion
 
